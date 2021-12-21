@@ -1,0 +1,28 @@
+.header{
+    background-color: #222;
+    padding: 8px;
+    height: 36px;
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotateY(0deg); }
+    to { -moz-transform: rotateY(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotateY(0deg); }
+    to { -webkit-transform: rotateY(360deg); }
+}
+@keyframes spin {
+    from {transform:rotateY(0deg);}
+    to {transform:rotateY(360deg);}
+}
+.logo{
+    height:35px;
+    background-color:#ff7f7f;
+    float: left;
+    animation: spin infinite 8s linear;
+    -webkit-animation: spin infinite 8s linear;
+    -moz-animation: spin infinite 8s linear;
+}
+.btn{
+    float: right;
+}
