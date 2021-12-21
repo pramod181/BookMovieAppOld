@@ -6,7 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import tileData from './tileData';
+// import moviesList from './moviesList';
 
 const styles = theme => ({
   root: {
@@ -22,6 +22,7 @@ const styles = theme => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
     innerHeight: "250px",
+    height:"100%",
   },
   title: {
     color: theme.palette.primary.light,
@@ -38,7 +39,7 @@ const styles = theme => ({
  * import image from 'path/to/image.jpg';
  * [etc...]
  *
- * const tileData = [
+ * const moviesList = [
  *   {
  *     img: image,
  *     title: 'Image',
@@ -52,26 +53,26 @@ const styles = theme => ({
 function UpComingMovies(props) {
   const { classes } = props;
 
-  const [tileData, setTileData] = useState([]);
+  const [moviesList, setMoviesList] = useState([]);
 
   async function upComingMoviesList() {
       const rawResponse = await fetch("http://localhost:8085/api/v1/movies?status=PUBLISHED");
       const data = await rawResponse.json();
-      setTileData(data.movies);
+      setMoviesList(data.movies);
   }
 
   useEffect(()=>{
       upComingMoviesList();    
-    },[tileData]);
+    },[moviesList]);
 
 
 
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={6}>
-        {tileData.map(tile => (
+        {moviesList.map(tile => (
           <GridListTile key={tile.id}>
-            <img src={tile.poster_url} alt={tile.title} />
+            <img src={tile.poster_url} alt={tile.title} style={{height:"auto", width:"100%"}}/>
             <GridListTileBar
               title={tile.title}
               // classes={{
