@@ -8,6 +8,9 @@ function openModelHandler() {
     return null;
 }
 
+function bookGuestHandler() {
+    return null;
+}
 
 const Header = function (props) {
     const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
@@ -56,7 +59,7 @@ const Header = function (props) {
                 <Button className="bookShowBtn" variant="contained" color="primary" size="small" style={bookGuestBtnDisplay} onClick={bookGuestHandler}>
                     Book Show
                 </Button>
-                <Button className="bookShowBtn" variant="contained" color="primary" size="small" style={bookUserBtnDisplay} onClick={book}>
+                <Button className="bookShowBtn" variant="contained" color="primary" size="small" style={bookUserBtnDisplay}>
                     Book Show
                 </Button>
                 <Button variant="contained" color="default" size="small" style={logoutBtnDisplay} onClick={openModelHandler}>

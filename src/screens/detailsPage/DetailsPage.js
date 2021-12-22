@@ -31,11 +31,13 @@ const opts = {
 export default function DetailsPage(params) {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [movieID, setMovieID] = useState("00ae33e8-a235-11e8-9077-720006ceb890");
+    const [movieID, setMovieID] = useState(params.match.params.id);
     const [movie, setMovie] = useState("");
-    const [trailerUrl, setTrailerUrl] = useState("https://www.youtube.com/watch?v=LoebZZ8K5N0");
+    const [trailerUrl, setTrailerUrl] = useState("");
     const [genres, setGenres] = useState("");
     const [artists, setArtists] = useState([]);
+
+  
 
     async function getMovie() {
         const url = "http://localhost:8085/api/v1/movies/" + movieID;
@@ -62,8 +64,7 @@ export default function DetailsPage(params) {
             </div>
             <div className="backToHome">
                 <Typography>
-                    &#60; Back to Home
-                    {/* <Link to="/">  &#60; Back to Home</Link> */}
+                    <Link to="/">  &#60; Back to Home</Link>
                 </Typography>
             </div>
             <div className="detailsFlexContainor">
